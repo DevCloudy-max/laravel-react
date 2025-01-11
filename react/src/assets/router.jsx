@@ -1,12 +1,12 @@
 import { createBrowserRouter, Navigate, RouterProvider } from "react-router-dom";
-import Login from "./views/login.jsx";
-import Signup from "./views/SignUp.jsx";
-import Users from "./views/Users.jsx";
-import NotFound from "./views/NotFound.jsx";
-import DefaultLayout from "./components/DefaultLayout.jsx";
-import GuestLayout from "./components/GuestLayout.jsx";
+import Login from ".././views/login.jsx";
+import Signup from ".././views/SignUp.jsx";
+import Users from ".././views/Users.jsx";
+import NotFound from ".././views/NotFound.jsx";
+import DefaultLayout from ".././components/DefaultLayout.jsx";
+import GuestLayout from ".././components/GuestLayout.jsx";
 import { children } from "react";
-import Dashboard from "./views/Dashboard.jsx";
+import Dashboard from ".././views/Dashboard.jsx";
 
 // Define the routes array directly
 const routes = [
