@@ -7,6 +7,7 @@ import DefaultLayout from ".././components/DefaultLayout.jsx";
 import GuestLayout from ".././components/GuestLayout.jsx";
 import { children } from "react";
 import Dashboard from ".././views/Dashboard.jsx";
+import UserForm from ".././views/UserForm.jsx";
 
 // Define the routes array directly
 const routes = [
@@ -25,6 +26,12 @@ const routes = [
       {
         path: '/users',
         element: <Users />
+      },{
+        path: '/users/new',
+        element: <UserForm key="UserCreate"/>
+      },{
+        path: '/users/:id',
+        element: <UserForm  key="UserUpdate"/>
       },
     ]
 
