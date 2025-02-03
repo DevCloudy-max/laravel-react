@@ -1,13 +1,16 @@
 {
     "private": true,
+    "type": "module",
     "scripts": {
+        "test": "echo \"No test script defined\" && exit 0",
         "dev": "npm run development",
         "development": "mix",
         "watch": "mix watch",
         "watch-poll": "mix watch -- --watch-options-poll=1000",
         "hot": "mix watch --hot",
         "prod": "npm run production",
-        "production": "mix --production"
+        "production": "mix --production",
+        "start": "npm run prod"
     },
     "devDependencies": {
         "axios": "^0.21",

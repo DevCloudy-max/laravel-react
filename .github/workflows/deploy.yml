@@ -8,21 +8,21 @@ jobs:
       runs-on: self-hosted
       steps:
          -  name: "setup node.js"
-            uses: action/setup-node@v4
+            uses: actions/setup-node@v4
             with : 
               node-verion: "20"
 
          - name: "checkout out"
-           uses : action/checkout@v2
+           uses : actions/checkout@v2
 
          - name: "install depemdemcies"
-           run : npm install
+           run: npm install
 
          - name: "install pm2 globally"
-           run : npm install pm2 -g
+           run: npm install pm2 -g
 
          - name: "run the tests"
-           run : npm test 
+           run: npm test 
 
          - name: "Deploy to AWS"
            run: pm2 start  react/src/views/Login.jsx  
