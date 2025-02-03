@@ -25,4 +25,6 @@ jobs:
            run: npm test 
 
          - name: "Deploy to AWS"
-           run: pm2 start  react/src/views/Login.jsx  
+           run: |
+            npm run build
+            pm2 serve build 3000 --name "react-app"
