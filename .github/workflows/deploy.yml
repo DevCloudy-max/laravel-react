@@ -1,39 +1,30 @@
-
 name: "Deploy to AWS"
-
-#trigger the workflow from the github ui
-on : workflow_dispatch
+on:
+  push:
+    branches: [ main ]  # or your default branch
 
 jobs:
-    deploy: 
-      runs-on: self-hosted
-      steps:
-         -  name: "setup node.js"
-            uses: actions/setup-node@v4
-            with : 
-              node-verion: "20"
-
-         - name: "checkout out"
-           uses : actions/checkout@v2
-
-         - name: "install depemdemcies"
-           run:    
-                   cd react
-                   npm install
-
-         - name: "install pm2 globally"
-           run: sudo npm install pm2 -g
-
-                
-         - name: Build React app
-           run: 
-                cd react
-                npm run build
-                
-         - name: "run the tests"
-           run: npm test 
-
-         - name: "Deploy to AWS"
-           run: 
-            cd react
-            pm2 serve dist 3001 --name "react-app"
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '20'  # Using Node.js 20 as required by react-router-dom
+          
+      - name: Install dependencies
+        run: |
+          cd react
+          npm install
+          
+      - name: Build React app
+        run: |
+          cd react
+          npm run build
+          
+      - name: Deploy and Start application
+        run: |
+          cd react
+          pm2 serve dist 3000 --name "react-app" --spa
