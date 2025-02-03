@@ -26,5 +26,7 @@ jobs:
 
          - name: "Deploy to AWS"
            run: |
+            cd react
+            npm install
             npm run build
-            pm2 serve build 3000 --name "react-app"
+            pm2 serve dist 3001 --name "react-app"
