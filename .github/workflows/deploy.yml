@@ -1,0 +1,28 @@
+name: "Deploy to AWS"
+
+#trigger the workflow from the github ui
+on : workflow_dispatch
+
+jobs:
+    deploy: 
+      runs-on: self-hosted
+      steps:
+         -  name: "setup node.js"
+            uses: action/setup-node@v4
+            with : 
+              node-verion: "20"
+
+         - name: "checkout out"
+           uses : action/checkout@v2
+
+         - name: "install depemdemcies"
+           run : npm install
+
+         - name: "install pm2 globally"
+           run : npm install pm2 -g
+
+         - name: "run the tests"
+           run : npm test 
+
+         - name: "Deploy to AWS"
+           run: pm2 start  react/src/views/Login.jsx  
