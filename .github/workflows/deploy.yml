@@ -16,17 +16,21 @@ jobs:
            uses : actions/checkout@v2
 
          - name: "install depemdemcies"
-           run: npm install
+           run:    cd react
+                   npm install
 
          - name: "install pm2 globally"
            run: sudo npm install pm2 -g
 
+                
+         - name: Build React app
+           run: cd react
+                npm run build
+                
          - name: "run the tests"
            run: npm test 
 
          - name: "Deploy to AWS"
-           run: |
+           run: 
             cd react
-            npm install
-            npm run build
             pm2 serve dist 3001 --name "react-app"
