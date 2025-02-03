@@ -1,3 +1,4 @@
+
 name: "Deploy to AWS"
 
 #trigger the workflow from the github ui
@@ -16,7 +17,8 @@ jobs:
            uses : actions/checkout@v2
 
          - name: "install depemdemcies"
-           run:    cd react
+           run:    
+                   cd react
                    npm install
 
          - name: "install pm2 globally"
