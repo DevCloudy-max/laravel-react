@@ -10,7 +10,8 @@
         "hot": "mix watch --hot",
         "prod": "npm run production",
         "production": "mix --production",
-        "start": "npm run prod"
+        "start": "react-scripts start",
+  "build": "react-scripts build"
     },
     "devDependencies": {
         "axios": "^0.21",
