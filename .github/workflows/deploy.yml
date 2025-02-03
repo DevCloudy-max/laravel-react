@@ -19,7 +19,7 @@ jobs:
            run: npm install
 
          - name: "install pm2 globally"
-           run: npm install pm2 -g
+           run: sudo npm install pm2 -g
 
          - name: "run the tests"
            run: npm test 
